@@ -32,6 +32,24 @@ src/
 
 ## ⚙️ Kurulum ve Kullanım
 
+### 0. Temiz Kurulum (Yeni Proje Başlatma)
+
+Sıfırdan yeni bir klasör açıp bu boilerplate ile projeye başlamak için, eski Git geçmişini almadan (sadece kodları) çekmeniz gerekir. Bunun için sırasıyla şu komutları çalıştırın:
+
+```bash
+# Repoyu klonlayın (repo private olduğu için degit yerine klasik clone kullanıyoruz)
+git clone https://github.com/Ripredx/astro-agents-boilerplate.git yeni-projem
+
+# Klasörün içine girin
+cd yeni-projem
+
+# Boilerplate'in eski Git bağlantısını silin (Windows için: rmdir /s /q .git)
+rm -rf .git
+
+# Kendi temiz Git deponuzu başlatın
+git init
+```
+
 ### 1. Bağımlılıkların Yüklenmesi
 ```bash
 pnpm install
