@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Astro Boilerplate" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    
+    <!-- JSON-LD Placeholder -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Astro Boilerplate",
+        "url": "https://example.com"
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      import { initLenis, resizeLenis, destroyLenis } from '../lib/lenis-setup';
+      import { killAllScrollTriggers } from '../lib/gsap-setup';
+
+      // Initialize lenis on first load
+      initLenis();
+
+      // Handle Astro View Transitions (if enabled in future)
+      document.addEventListener('astro:page-load', () => {
+        resizeLenis();
+      });
+
+      document.addEventListener('astro:before-swap', () => {
+        killAllScrollTriggers();
+      });
+    </script>
+  </body>
+</html>

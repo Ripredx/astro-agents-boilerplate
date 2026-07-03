@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Astro Boilerplate">
+  <main class="min-h-screen bg-background text-text font-sans p-8">
+    <h1 class="text-4xl font-bold text-primary mb-4">Astro Boilerplate</h1>
+    <p class="text-lg">This project is initialized with Astro, Tailwind, GSAP, and Lenis.</p>
+    
+    <div class="mt-8">
+      <h2 class="text-2xl font-semibold mb-4">Contact Form (Honeypot Example)</h2>
+      <form action="/api/contact" method="POST" class="flex flex-col gap-4 max-w-sm">
+        <input type="text" name="name" placeholder="Your Name" required class="border p-2 rounded" />
+        <input type="email" name="email" placeholder="Your Email" required class="border p-2 rounded" />
+        
+        <!-- Honeypot Field -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" />
+        
+        <button type="submit" class="bg-primary text-secondary p-2 rounded cursor-pointer">Submit</button>
+      </form>
+    </div>
+  </main>
+</BaseLayout>
